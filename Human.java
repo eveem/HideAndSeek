@@ -14,6 +14,27 @@ public class Human extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        move();
     }    
+    
+    public void move()
+    {
+        if (Greenfoot.isKeyDown("left"))
+        {
+            setLocation(getX() - 1, getY());
+        }
+        else if (Greenfoot.isKeyDown("right"))
+        {
+            setLocation(getX() + 1, getY());
+        }
+        else if (Greenfoot.isKeyDown("down"))
+        {
+            setLocation(getX(), getY() + 1);
+        }
+        else if (Greenfoot.isKeyDown("up"))
+        {
+            setLocation(getX(), getY() - 1);
+        }
+        Greenfoot.delay(5);
+    }
 }

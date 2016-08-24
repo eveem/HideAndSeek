@@ -14,6 +14,27 @@ public class Murder extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        move();
     }    
+    
+    public void move()
+    {
+        if (Greenfoot.isKeyDown("a"))
+        {
+            setLocation(getX() - 1, getY());
+        }
+        else if (Greenfoot.isKeyDown("d"))
+        {
+            setLocation(getX() + 1, getY());
+        }
+        else if (Greenfoot.isKeyDown("s"))
+        {
+            setLocation(getX(), getY() + 1);
+        }
+        else if (Greenfoot.isKeyDown("w"))
+        {
+            setLocation(getX(), getY() - 1);
+        }
+        Greenfoot.delay(5);
+    }
 }
