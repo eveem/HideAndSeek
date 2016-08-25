@@ -19,22 +19,22 @@ public class Human extends Actor
     
     public void move()
     {
-        if (Greenfoot.isKeyDown("left"))
+        if (Greenfoot.isKeyDown("left") && ((HouseMap) getWorld()).checkLocation(getX() - 1, getY(), 'a'))
         {
             setLocation(getX() - 1, getY());
         }
-        else if (Greenfoot.isKeyDown("right"))
+        else if (Greenfoot.isKeyDown("right") && ((HouseMap) getWorld()).checkLocation(getX() + 1, getY(), 'a'))
         {
             setLocation(getX() + 1, getY());
         }
-        else if (Greenfoot.isKeyDown("down"))
+        else if (Greenfoot.isKeyDown("down") && ((HouseMap) getWorld()).checkLocation(getX(), getY() + 1, 'a'))
         {
             setLocation(getX(), getY() + 1);
         }
-        else if (Greenfoot.isKeyDown("up"))
+        else if (Greenfoot.isKeyDown("up") && ((HouseMap) getWorld()).checkLocation(getX(), getY() - 1, 'a'))
         {
             setLocation(getX(), getY() - 1);
         }
-        Greenfoot.delay(5);
+        Greenfoot.delay(4);
     }
 }

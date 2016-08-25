@@ -1,7 +1,7 @@
 #Greenfoot properties
-#Thu Aug 25 13:06:29 ICT 2016
+#Thu Aug 25 14:41:48 ICT 2016
 target4.type=ClassTarget
-class.Murder.image=spider.png
+class.Murder.image=killer.png
 dependency3.from=HouseMap
 target3.height=50
 target5.height=50
@@ -27,7 +27,7 @@ version=2.8.0
 class.HouseMap.superclass=greenfoot.World
 class.Wall.image=Wall.jpg
 dependency1.to=Wall
-class.Human.image=starfish.png
+class.Human.image=man.png
 dependency2.to=Murder
 target1.width=80
 editor.fx.0.y=23
@@ -47,8 +47,8 @@ editor.swing.0.y=23
 target1.typeParameters=
 editor.swing.0.x=0
 target2.height=50
-target5.y=10
 target4.height=50
+target5.y=10
 target5.x=70
 target1.name=Human
 target4.y=70
@@ -75,11 +75,11 @@ target4.width=80
 dependency2.from=HouseMap
 dependency2.type=UsesDependency
 target5.typeParameters=
-world.lastInstantiated=MyWorld
-mainWindow.height=840
+world.lastInstantiated=HouseMap
 target2.showInterface=false
+mainWindow.height=840
 editor.swing.0.height=873
 target3.name=Wall
-project.charset=UTF-8
 target3.width=80
+project.charset=UTF-8
 target4.showInterface=false

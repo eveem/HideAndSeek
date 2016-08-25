@@ -19,8 +19,6 @@ public class Murder extends Actor
     
     public void move()
     {
-        World world = new HouseMap();
-
         if (Greenfoot.isKeyDown("a") && ((HouseMap) getWorld()).checkLocation(getX() - 1, getY(), 'a'))
         {
             setLocation(getX() - 1, getY());
@@ -37,6 +35,6 @@ public class Murder extends Actor
         {
             setLocation(getX(), getY() - 1);
         }
-        Greenfoot.delay(5);
+        Greenfoot.delay(4);
     }
 }
