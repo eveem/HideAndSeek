@@ -19,19 +19,21 @@ public class Murder extends Actor
     
     public void move()
     {
-        if (Greenfoot.isKeyDown("a"))
+        World world = new HouseMap();
+
+        if (Greenfoot.isKeyDown("a") && ((HouseMap) getWorld()).checkLocation(getX() - 1, getY(), 'a'))
         {
             setLocation(getX() - 1, getY());
         }
-        else if (Greenfoot.isKeyDown("d"))
+        else if (Greenfoot.isKeyDown("d") && ((HouseMap) getWorld()).checkLocation(getX() + 1, getY(), 'a'))
         {
             setLocation(getX() + 1, getY());
         }
-        else if (Greenfoot.isKeyDown("s"))
+        else if (Greenfoot.isKeyDown("s") && ((HouseMap) getWorld()).checkLocation(getX(), getY() + 1, 'a'))
         {
             setLocation(getX(), getY() + 1);
         }
-        else if (Greenfoot.isKeyDown("w"))
+        else if (Greenfoot.isKeyDown("w") && ((HouseMap) getWorld()).checkLocation(getX(), getY() - 1, 'a'))
         {
             setLocation(getX(), getY() - 1);
         }

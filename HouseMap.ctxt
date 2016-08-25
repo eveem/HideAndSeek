@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=HouseMap
+comment0.text=\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=HouseMap()
+comment2.params=
+comment2.target=void\ prepare()
+comment2.text=\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\n
+comment3.params=
+comment3.target=void\ generatePlayers()
+comment4.params=command
+comment4.target=void\ setPlayerPosition(char)
+comment5.params=x\ y\ player
+comment5.target=boolean\ checkLocation(int,\ int,\ char)
+comment6.params=
+comment6.target=void\ generateWall()
+numComments=7
