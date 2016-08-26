@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Aug 26 12:27:43 ICT 2016
+#Fri Aug 26 13:34:15 ICT 2016
 target4.type=ClassTarget
 class.Murder.image=killer.png
 dependency3.from=HouseMap
@@ -62,6 +62,8 @@ target4.x=160
 target3.y=10
 target3.x=160
 target2.type=ClassTarget
+class.GameOver.image=52076.png
+class.GameOver.superclass=greenfoot.Actor
 target2.y=70
 target2.x=70
 mainWindow.y=23

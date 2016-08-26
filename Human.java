@@ -12,35 +12,63 @@ public class Human extends Actor
      * Act - do whatever the human wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    int count = 0;
+    
     public void act() 
     {
-        move();
+        action();
     }    
     
-    public void move()
+    public void action()
     {
-        if (Greenfoot.isKeyDown("left") && ((HouseMap) getWorld()).checkLocation(getX() - 1, getY(), 'a'))
+        int xPose = getX(), yPose = getY();
+        if (Greenfoot.isKeyDown("left") && canMove(getX() - 1, getY()))
         {
-            setLocation(getX() - 1, getY());
+            xPose = getX() - 1;
+            yPose = getY();
+            count += 1;
         }
-        else if (Greenfoot.isKeyDown("right") && ((HouseMap) getWorld()).checkLocation(getX() + 1, getY(), 'a'))
+        else if (Greenfoot.isKeyDown("right") && canMove(getX() + 1, getY()))
         {
-            setLocation(getX() + 1, getY());
+            xPose = getX() + 1;
+            yPose = getY();
+            count += 1;
         }
-        else if (Greenfoot.isKeyDown("down") && ((HouseMap) getWorld()).checkLocation(getX(), getY() + 1, 'a'))
+        else if (Greenfoot.isKeyDown("down") && canMove(getX(), getY() + 1))
         {
-            setLocation(getX(), getY() + 1);
+            xPose = getX();
+            yPose = getY() + 1;
+            count += 1;
         }
-        else if (Greenfoot.isKeyDown("up") && ((HouseMap) getWorld()).checkLocation(getX(), getY() - 1, 'a'))
+        else if (Greenfoot.isKeyDown("up") && canMove(getX(), getY() - 1))
         {
-            setLocation(getX(), getY() - 1);
+            xPose = getX();
+            yPose = getY() - 1;
+            count += 1;
         }
         else if (Greenfoot.isKeyDown("enter"))
         {
             Actor floor = new Floor();
             World world = getWorld();
             world.addObject(floor, getX(), getY());
+            count = 0;
         }
+        
+        if (count <= 5)
+        {
+            setLocation(xPose, yPose);
+        }
+
         Greenfoot.delay(4);
+    }
+    
+    private boolean canMove (int x, int y)
+    {
+        if (((HouseMap)getWorld()).checkLocation(x, y, 'a'))
+        {
+            return true;
+        }
+        return false;
     }
 }

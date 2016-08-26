@@ -12,29 +12,72 @@ public class Murder extends Actor
      * Act - do whatever the murder wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    int count = 0;
+    
     public void act() 
     {
-        move();
+        action();
     }    
     
-    public void move()
+    public void action()
     {
-        if (Greenfoot.isKeyDown("a") && ((HouseMap) getWorld()).checkLocation(getX() - 1, getY(), 'a'))
+        World world = getWorld();
+        int xPose = getX(), yPose = getY();
+        if (Greenfoot.isKeyDown("a") && canMove(getX() - 1, getY()))
         {
-            setLocation(getX() - 1, getY());
+            xPose = getX() - 1;
+            yPose = getY();
+            count += 1;
         }
-        else if (Greenfoot.isKeyDown("d") && ((HouseMap) getWorld()).checkLocation(getX() + 1, getY(), 'a'))
+        else if (Greenfoot.isKeyDown("d") && canMove(getX() + 1, getY()))
         {
-            setLocation(getX() + 1, getY());
+            xPose = getX() + 1;
+            yPose = getY();
+            count += 1;
         }
-        else if (Greenfoot.isKeyDown("s") && ((HouseMap) getWorld()).checkLocation(getX(), getY() + 1, 'a'))
+        else if (Greenfoot.isKeyDown("s") && canMove(getX(), getY() + 1))
         {
-            setLocation(getX(), getY() + 1);
+            xPose = getX();
+            yPose = getY() + 1;
+            count += 1;
         }
-        else if (Greenfoot.isKeyDown("w") && ((HouseMap) getWorld()).checkLocation(getX(), getY() - 1, 'a'))
+        else if (Greenfoot.isKeyDown("w") && canMove(getX(), getY() - 1))
         {
-            setLocation(getX(), getY() - 1);
+            xPose = getX();
+            yPose = getY() - 1;
+            count += 1;
+        }
+        else if (Greenfoot.isKeyDown("space"))
+        {
+            Actor floor;
+            floor = getOneObjectAtOffset(0,0,Floor.class);
+            if (floor != null)
+            { 
+                world.removeObject(floor);
+            }
+            Actor human;
+            human = getOneObjectAtOffset(0,0,Human.class);
+            if (human != null)
+            {
+                Actor over = new GameOver();
+                world.addObject(over, 5, 5);
+            }
+            count = 0;
+        }
+        if (count <= 6)
+        {
+            setLocation(xPose, yPose);
         }
         Greenfoot.delay(4);
+    }
+    
+    private boolean canMove (int x, int y)
+    {
+        if (((HouseMap)getWorld()).checkLocation(x, y, 'a'))
+        {
+            return true;
+        }
+        return false;
     }
 }
