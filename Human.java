@@ -35,6 +35,12 @@ public class Human extends Actor
         {
             setLocation(getX(), getY() - 1);
         }
+        else if (Greenfoot.isKeyDown("enter"))
+        {
+            Actor floor = new Floor();
+            World world = getWorld();
+            world.addObject(floor, getX(), getY());
+        }
         Greenfoot.delay(4);
     }
 }

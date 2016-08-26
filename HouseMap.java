@@ -33,6 +33,7 @@ public class HouseMap extends World
     private void prepare()
     {
         generateWall();
+        generateFloor();
         generatePlayers();
     }
     
@@ -80,6 +81,21 @@ public class HouseMap extends World
             }
         }
         return true;
+    }
+    
+    private void generateFloor()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (checkLocation(i, j, 'f'))
+                {
+                   Floor floor = new Floor();
+                   addObject(floor, i, j);
+                }
+            }
+        }
     }
     
     private void generateWall()
