@@ -18,35 +18,41 @@ public class Murder extends Actor
     public void act() 
     {
         action();
+        getWorld().addObject(this, getX(), getY());
     }    
     
     public void action()
     {
         World world = getWorld();
         int xPose = getX(), yPose = getY();
+        //GreenfootSound step = new GreenfootSound("step.mp3");
         if (Greenfoot.isKeyDown("a") && canMove(getX() - 1, getY()))
         {
             xPose = getX() - 1;
             yPose = getY();
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("d") && canMove(getX() + 1, getY()))
         {
             xPose = getX() + 1;
             yPose = getY();
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("s") && canMove(getX(), getY() + 1))
         {
             xPose = getX();
             yPose = getY() + 1;
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("w") && canMove(getX(), getY() - 1))
         {
             xPose = getX();
             yPose = getY() - 1;
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("space"))
         {
@@ -62,6 +68,10 @@ public class Murder extends Actor
             {
                 Actor over = new GameOver();
                 world.addObject(over, 5, 5);
+                GreenfootSound end = new GreenfootSound("endSound.mp3");
+                end.play();
+                Greenfoot.delay(5);
+                Greenfoot.stop();
             }
             count = 0;
         }

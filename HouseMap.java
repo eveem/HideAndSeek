@@ -35,6 +35,8 @@ public class HouseMap extends World
         generateWall();
         generateFloor();
         generatePlayers();
+        GreenfootSound bgEffect = new GreenfootSound("bgSound.mp3");
+        bgEffect.play();
     }
     
     private void generatePlayers()

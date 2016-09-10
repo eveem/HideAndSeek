@@ -23,29 +23,34 @@ public class Human extends Actor
     public void action()
     {
         int xPose = getX(), yPose = getY();
+        //GreenfootSound step = new GreenfootSound("step.mp3");
         if (Greenfoot.isKeyDown("left") && canMove(getX() - 1, getY()))
         {
             xPose = getX() - 1;
             yPose = getY();
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("right") && canMove(getX() + 1, getY()))
         {
             xPose = getX() + 1;
             yPose = getY();
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("down") && canMove(getX(), getY() + 1))
         {
             xPose = getX();
             yPose = getY() + 1;
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("up") && canMove(getX(), getY() - 1))
         {
             xPose = getX();
             yPose = getY() - 1;
             count += 1;
+            //step.play();
         }
         else if (Greenfoot.isKeyDown("enter"))
         {
@@ -53,6 +58,14 @@ public class Human extends Actor
             World world = getWorld();
             world.addObject(floor, getX(), getY());
             count = 0;
+            Actor murder;
+            murder = getOneObjectAtOffset(0,0,Murder.class);
+            if (murder != null)
+            {
+                Actor over = new GameOver();
+                world.addObject(over, 5, 5);
+                world.stopped();
+            }
         }
         
         if (count <= 5)
